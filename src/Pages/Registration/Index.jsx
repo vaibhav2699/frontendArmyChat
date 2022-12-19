@@ -1,20 +1,59 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
+
 // import "./Registration.css";
 const RegistrationPage = () => {
+  const navigate=useNavigate()
   const [userName, setUserName] = useState("");
+  const [userNameError, setUserNameError] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [mobileNo, setMobileNo] = useState();
+  const [mobileNoError, setMobileNoError] = useState("");
 
+  const validation = () => {
+    let formisValid = true;
+    if (!userName) {
+      setUserNameError("Please enter User Name");
+      formisValid = false;
+    } else {
+      setUserNameError("");
+    }
+    if (!password) {
+      setPasswordError("Please enter Password");
+      formisValid = false;
+    } else {
+      setPasswordError("");
+    }
+    if (!email) {
+      setEmailError("Please enter Email");
+      formisValid = false;
+    } else {
+      setEmailError("");
+    }
+    if (!mobileNo) {
+      setMobileNoError("Please enter Mobile No");
+      formisValid = false;
+    } else {
+      setMobileNoError("");
+    }
+    return formisValid;
+  };
   const submitButton = () => {
-    setUserName("");
-    setEmail("");
-    setPassword("");
-    setMobileNo("");
-    console.log("userName", userName);
-    console.log("password", password);
-    console.log("email", email);
-    console.log("mobileNo", mobileNo);
+    if (validation()) {
+      navigate("/")
+      setUserName("");
+      setEmail("");
+      setPassword("");
+      setMobileNo("");
+      console.log("userName", userName);
+      console.log("password", password);
+      console.log("email", email);
+      console.log("mobileNo", mobileNo);
+    } else {
+    }
   };
 
   return (
@@ -35,11 +74,9 @@ const RegistrationPage = () => {
               <div className="card" style={{ borderRadius: "15px" }}>
                 <div className="card-body p-5">
                   <h2 className="text-uppercase text-center mb-5">
-                    Create an account
+                   Registration
                   </h2>
-                  <label className="form-label" htmlFor="form3Example1cg">
-                    User Name
-                  </label>
+
                   <div className="form-outline">
                     <input
                       type="text"
@@ -47,52 +84,55 @@ const RegistrationPage = () => {
                       className="form-control form-control-lg "
                       placeholder="UserName"
                       value={userName}
-                      onChange={(e) => setUserName(e.target.value)}
+                      onChange={(e) => [
+                        setUserName(e.target.value),
+                        setUserNameError(""),
+                      ]}
                     />
                   </div>
-
-                  <div className="form-outline">
-                    <label className="form-label" htmlFor="form3Example3cg">
-                      Email
-                    </label>
+                  <div>{userNameError}</div>
+                  <div className="form-outline mt-3">
                     <input
                       type="email"
                       id="form3Example3cg"
                       placeholder="a@gmail.com"
                       className="form-control form-control-lg"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => [
+                        setEmail(e.target.value),
+                        setEmailError(""),
+                      ]}
                     />
                   </div>
-
-                  <div className="form-outline">
-                    <label className="form-label" htmlFor="form3Example4cg">
-                      Password
-                    </label>
+                  <div>{emailError}</div>
+                  <div className="form-outline mt-3">
                     <input
                       type="password"
                       id="form3Example4cg"
                       placeholder="Password"
                       className="form-control form-control-lg"
                       value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e) => [
+                        setPassword(e.target.value),
+                        setPasswordError(""),
+                      ]}
                     />
                   </div>
-
-                  <div className="form-outline">
-                    <label className="form-label" htmlFor="form3Example4cdg">
-                      Mobile No
-                    </label>
+                  <div>{passwordError}</div>
+                  <div className="form-outline mt-3">
                     <input
                       type="text"
                       id="form3Example4cdg"
                       className="form-control form-control-lg"
                       placeholder="1234567890"
                       value={mobileNo}
-                      onChange={(e) => setMobileNo(e.target.value)}
+                      onChange={(e) => [
+                        setMobileNo(e.target.value),
+                        setMobileNoError(""),
+                      ]}
                     />
                   </div>
-
+                  <div>{mobileNoError}</div>
                   <div className="d-flex justify-content-center mt-3">
                     <button
                       type="button"

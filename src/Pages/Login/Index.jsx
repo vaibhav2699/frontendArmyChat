@@ -1,14 +1,33 @@
 import React, { useState } from "react";
 
 const Login = () => {
-  const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-
+  const [emailError, setEmailError] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const validation = () => {
+    let formisValid = true;
+    if (!email) {
+      setEmailError("Please enter Email");
+      formisValid = false;
+    } else {
+      setEmailError("");
+    }
+    if (!password) {
+      setPasswordError("Please enter Password");
+      formisValid = false;
+    } else {
+      setPasswordError("");
+    }
+    return formisValid;
+  };
   const submitButton = () => {
-    setEmail("");
-    setPassword("");
-    console.log("password", password);
-    console.log("email", email);
+    if (validation()) {
+      setEmail("");
+      setPassword("");
+      console.log("email", email);
+      console.log("password", password);
+    }
   };
   return (
     <section
@@ -28,35 +47,37 @@ const Login = () => {
               <div className="card" style={{ borderRadius: "15px" }}>
                 <div className="card-body p-5">
                   <h2 className="text-uppercase text-center mb-5">
-                    Create an account
+                    Login
                   </h2>
 
                   <div className="form-outline">
-                    <label className="form-label" htmlFor="form3Example3cg">
-                      Email
-                    </label>
                     <input
                       type="email"
                       id="form3Example3cg"
                       placeholder="a@gmail.com"
                       className="form-control form-control-lg"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => [
+                        setEmail(e.target.value),
+                        setEmailError(""),
+                      ]}
                     />
                   </div>
-                  <div className="form-outline">
-                    <label className="form-label" htmlFor="form3Example4cg">
-                      Password
-                    </label>
+                  <div>{emailError}</div>
+                  <div className="form-outline mt-3">
                     <input
                       type="password"
                       id="form3Example4cg"
                       placeholder="Password"
                       className="form-control form-control-lg"
                       value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e) => [
+                        setPassword(e.target.value),
+                        setPasswordError(""),
+                      ]}
                     />
                   </div>
+                  <div>{passwordError}</div>
                   <div className="d-flex justify-content-center mt-3">
                     <button
                       type="button"
@@ -68,7 +89,7 @@ const Login = () => {
                   </div>
 
                   <p className="text-center text-muted mt-3">
-                    New Heare?
+                    New Here?
                     <a href="/signup" className="fw-bold text-body">
                       <u>Register Here</u>
                     </a>

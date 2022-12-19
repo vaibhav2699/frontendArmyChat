@@ -1,4 +1,14 @@
-.input-field{
-    width: 13%;
-    text-align: center;
+.error {
+  color: rgb(255, 0, 0);
+  text-align: left;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.603);
+  position: absolute;
+  top: 0;
+  left: 0px;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.9;
 }

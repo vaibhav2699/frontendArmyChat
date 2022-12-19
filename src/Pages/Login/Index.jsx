@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import "../Registration/Registration.css";
+import "./Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -37,7 +38,8 @@ const Login = () => {
           "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')",
       }}
     >
-      <div className="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div className="overlay"></div>
+            <div className="mask d-flex align-items-center h-100 gradient-custom-3">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div
@@ -46,9 +48,7 @@ const Login = () => {
             >
               <div className="card" style={{ borderRadius: "15px" }}>
                 <div className="card-body p-5">
-                  <h2 className="text-uppercase text-center mb-5">
-                    Login
-                  </h2>
+                  <h2 className="text-uppercase text-center mb-5">Login</h2>
 
                   <div className="form-outline">
                     <input
@@ -63,7 +63,7 @@ const Login = () => {
                       ]}
                     />
                   </div>
-                  <div>{emailError}</div>
+                  <div className="error">{emailError}</div>
                   <div className="form-outline mt-3">
                     <input
                       type="password"
@@ -77,7 +77,7 @@ const Login = () => {
                       ]}
                     />
                   </div>
-                  <div>{passwordError}</div>
+                  <div className="error">{passwordError}</div>
                   <div className="d-flex justify-content-center mt-3">
                     <button
                       type="button"

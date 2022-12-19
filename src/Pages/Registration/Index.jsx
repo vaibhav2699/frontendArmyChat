@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-
-// import "./Registration.css";
+import "./Registration.css";
 const RegistrationPage = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [userNameError, setUserNameError] = useState("");
   const [password, setPassword] = useState("");
@@ -43,7 +42,7 @@ const RegistrationPage = () => {
   };
   const submitButton = () => {
     if (validation()) {
-      navigate("/")
+      navigate("/");
       setUserName("");
       setEmail("");
       setPassword("");
@@ -64,6 +63,8 @@ const RegistrationPage = () => {
           "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')",
       }}
     >
+      <div className="overlay"></div>
+
       <div className="mask d-flex align-items-center h-100 gradient-custom-3">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -74,7 +75,7 @@ const RegistrationPage = () => {
               <div className="card" style={{ borderRadius: "15px" }}>
                 <div className="card-body p-5">
                   <h2 className="text-uppercase text-center mb-5">
-                   Registration
+                    Registration
                   </h2>
 
                   <div className="form-outline">
@@ -90,7 +91,7 @@ const RegistrationPage = () => {
                       ]}
                     />
                   </div>
-                  <div>{userNameError}</div>
+                  <div className="error">{userNameError}</div>
                   <div className="form-outline mt-3">
                     <input
                       type="email"
@@ -104,7 +105,7 @@ const RegistrationPage = () => {
                       ]}
                     />
                   </div>
-                  <div>{emailError}</div>
+                  <div className="error">{emailError}</div>
                   <div className="form-outline mt-3">
                     <input
                       type="password"
@@ -118,13 +119,13 @@ const RegistrationPage = () => {
                       ]}
                     />
                   </div>
-                  <div>{passwordError}</div>
+                  <div className="error">{passwordError}</div>
                   <div className="form-outline mt-3">
                     <input
                       type="text"
                       id="form3Example4cdg"
                       className="form-control form-control-lg"
-                      placeholder="1234567890"
+                      placeholder="+00 00000 00000"
                       value={mobileNo}
                       onChange={(e) => [
                         setMobileNo(e.target.value),
@@ -132,7 +133,7 @@ const RegistrationPage = () => {
                       ]}
                     />
                   </div>
-                  <div>{mobileNoError}</div>
+                  <div className="error">{mobileNoError}</div>
                   <div className="d-flex justify-content-center mt-3">
                     <button
                       type="button"

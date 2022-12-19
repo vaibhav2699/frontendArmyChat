@@ -99,13 +99,13 @@ const RegistrationPage = () => {
                       className="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
                       onClick={() => submitButton()}
                     >
-                      Register
+                      Create
                     </button>
                   </div>
 
                   <p className="text-center text-muted mt-3">
                     Have already an account?
-                    <a href="/signup" className="fw-bold text-body">
+                    <a href="/" className="fw-bold text-body">
                       <u>Login here</u>
                     </a>
                   </p>

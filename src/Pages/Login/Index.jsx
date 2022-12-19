@@ -1,83 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Login = () => {
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  const submitButton = () => {
+    setEmail("");
+    setPassword("");
+    console.log("password", password);
+    console.log("email", email);
+  };
   return (
-    <section className="vh-100 gradient-custom">
-      <div className="container  h-100">
-        <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+    <section
+      className="vh-100 bg-image"
+      style={{
+        backgroundImage:
+          "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')",
+      }}
+    >
+      <div className="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div className="container h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
             <div
-              className="card bg-dark text-white"
-              style={{ borderRadius: "1rem" }}
+              className="col-12 col-md-9 col-lg-7 col-xl-6"
+              // style={{ width: "40%", height: "648px" }}
             >
-              <div className="card-body p-5 text-center">
-                <div className="pb-5">
-                  <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
-                  <p className="text-white-50 mb-5">
-                    Please enter your login and password!
-                  </p>
-                  <div className="form-outline form-white mb-4">
+              <div className="card" style={{ borderRadius: "15px" }}>
+                <div className="card-body p-5">
+                  <h2 className="text-uppercase text-center mb-5">
+                    Create an account
+                  </h2>
+
+                  <div className="form-outline">
+                    <label className="form-label" htmlFor="form3Example3cg">
+                      Email
+                    </label>
                     <input
                       type="email"
-                      id="typeEmailX"
+                      id="form3Example3cg"
+                      placeholder="a@gmail.com"
                       className="form-control form-control-lg"
-                      placeholder='useername'
-
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
-                   
                   </div>
-                  
-                  {/* <label className="form-label" htmlFor="typePasswordX">
+                  <div className="form-outline">
+                    <label className="form-label" htmlFor="form3Example4cg">
                       Password
-                    </label> */}
-                  <div className="form-outline form-white mb-4">
+                    </label>
                     <input
                       type="password"
-                      id="typePasswordX"
+                      id="form3Example4cg"
+                      placeholder="Password"
                       className="form-control form-control-lg"
-                      placeholder='password'
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
-                  
                   </div>
-                  <div className="form-outline form-white mb-4">
-                    <input
-                      type="password"
-                      id="typePasswordX"
-                      className="form-control form-control-lg"
-                      placeholder='password'
-                    />
-                  
-                  </div>
-                  <div className="form-outline form-white mb-4">
-                    <input
-                      type="password"
-                      id="typePasswordX"
-                      className="form-control form-control-lg"
-                      placeholder='password'
-                    />
-                  
+                  <div className="d-flex justify-content-center mt-3">
+                    <button
+                      type="button"
+                      className="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                      onClick={() => submitButton()}
+                    >
+                      Login
+                    </button>
                   </div>
 
-                  <p className="small mb-5 pb-lg-2">
-                    <a className="text-white-50" href="#!">
-                      Forgot password?
-                    </a>
-                  </p>
-
-                  <button
-                    className="btn btn-outline-light btn-lg px-5"
-                    type="submit"
-                  >
-                    Login
-                  </button>
-
-                </div>
-
-                <div>
-                  <p className="mb-0">
-                    Don't have an account?{" "}
-                    <a href="#!" className="text-white-50 fw-bold">
-                      Sign Up
+                  <p className="text-center text-muted mt-3">
+                    New Heare?
+                    <a href="/signup" className="fw-bold text-body">
+                      <u>Register Here</u>
                     </a>
                   </p>
                 </div>

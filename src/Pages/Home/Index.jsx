@@ -4,7 +4,6 @@ import "./Home.css";
 const Home = () => {
   const [showChatBox, setShowChatBox] = useState(false);
 
-
   const chatBoxButton = () => {
     if (showChatBox === false) {
       setShowChatBox(true);
@@ -45,8 +44,6 @@ const Home = () => {
               <h5 className="font-weight-bold mb-3 text-center text-lg-start">
                 Users
               </h5>
-
-export default Index
               <div className="card">
                 <div className="card-body">
                   <ul className="list-unstyled mb-0">

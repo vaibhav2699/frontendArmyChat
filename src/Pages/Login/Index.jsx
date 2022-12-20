@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../Registration/Registration.css";
+import { Link } from "react-router-dom";
 import "./Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -90,9 +91,9 @@ const Login = () => {
 
                   <p className="text-center text-muted mt-3">
                     New Here?
-                    <a href="/signup" className="fw-bold text-body">
+                    <Link to="/signup" className="fw-bold text-body">
                       <u>Register Here</u>
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>

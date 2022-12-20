@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import "./Registration.css";
 const RegistrationPage = () => {
   const navigate = useNavigate();
@@ -146,9 +147,9 @@ const RegistrationPage = () => {
 
                   <p className="text-center text-muted mt-3">
                     Have already an account?
-                    <a href="/" className="fw-bold text-body">
+                    <Link to="/" className="fw-bold text-body">
                       <u>Login here</u>
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>
